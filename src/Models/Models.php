@@ -6,7 +6,7 @@
  * Time: 11:58.
  */
 
-namespace Sayller\ForumChatter\Models;
+namespace xcloud\ForumChatter\Models;
 
 class Models
 {
@@ -58,7 +58,7 @@ class Models
      *
      * @param array $attributes
      *
-     * @return \Sayller\ForumChatter\Models\Category
+     * @return \xcloud\ForumChatter\Models\Category
      */
     public static function category(array $attributes = [])
     {
@@ -70,7 +70,7 @@ class Models
      *
      * @param array $attributes
      *
-     * @return \Sayller\ForumChatter\Models\Discussion
+     * @return \xcloud\ForumChatter\Models\Discussion
      */
     public static function discussion(array $attributes = [])
     {
@@ -82,7 +82,7 @@ class Models
      *
      * @param array $attributes
      *
-     * @return \Sayller\ForumChatter\Models\Post
+     * @return \xcloud\ForumChatter\Models\Post
      */
     public static function post(array $attributes = [])
     {

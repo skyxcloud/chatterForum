@@ -1,6 +1,6 @@
 <?php
 
-namespace Sayller\ForumChatter\Helpers;
+namespace xcloud\ForumChatter\Helpers;
 
 class ChatterHelper
 {

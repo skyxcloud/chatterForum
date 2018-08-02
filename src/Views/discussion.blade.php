@@ -2,13 +2,13 @@
 
 @section(Config::get('chatter.yields.head'))
     @if(Config::get('chatter.sidebar_in_discussion_view'))
-        <link href="{{ url('/vendor/sayller/forumchatter/assets/vendor/spectrum/spectrum.css') }}" rel="stylesheet">
+        <link href="{{ url('/vendor/xcloud/forumchatter/assets/vendor/spectrum/spectrum.css') }}" rel="stylesheet">
     @endif
-    <link href="{{ url('/vendor/sayller/forumchatter/assets/css/chatter.css') }}" rel="stylesheet">
+    <link href="{{ url('/vendor/xcloud/forumchatter/assets/css/chatter.css') }}" rel="stylesheet">
     @if($chatter_editor == 'simplemde')
-        <link href="{{ url('/vendor/sayller/forumchatter/assets/css/simplemde.min.css') }}" rel="stylesheet">
+        <link href="{{ url('/vendor/xcloud/forumchatter/assets/css/simplemde.min.css') }}" rel="stylesheet">
     @elseif($chatter_editor == 'trumbowyg')
-        <link href="{{ url('/vendor/sayller/forumchatter/assets/vendor/trumbowyg/ui/trumbowyg.css') }}" rel="stylesheet">
+        <link href="{{ url('/vendor/xcloud/forumchatter/assets/vendor/trumbowyg/ui/trumbowyg.css') }}" rel="stylesheet">
         <style>
             .trumbowyg-box, .trumbowyg-editor {
                 margin: 0px auto;
@@ -68,7 +68,7 @@
                         <button class="btn btn-primary" id="new_discussion_btn"><i class="chatter-new"></i> @lang('chatter::messages.discussion.new')</button>
                         <a href="/{{ Config::get('chatter.routes.home') }}"><i class="chatter-bubble"></i> @lang('chatter::messages.discussion.all')</a>
                         <ul class="nav nav-pills nav-stacked">
-                            <?php $categories = Sayller\ForumChatter\Models\Models::category()->all(); ?>
+                            <?php $categories = xcloud\ForumChatter\Models\Models::category()->all(); ?>
                             @foreach($categories as $category)
                                 <li><a href="/{{ Config::get('chatter.routes.home') }}/{{ Config::get('chatter.routes.category') }}/{{ $category->slug }}"><div class="chatter-box" style="background-color:{{ $category->color }}"></div> {{ $category->name }}</a></li>
                             @endforeach
@@ -112,19 +112,19 @@
 					        				@endif
 
 					        			@else
-					        				<span class="chatter_avatar_circle" style="background-color:#<?= \Sayller\ForumChatter\Helpers\ChatterHelper::stringToColorCode($post->user->{Config::get('chatter.user.database_field_with_user_name')}) ?>">
+					        				<span class="chatter_avatar_circle" style="background-color:#<?= \xcloud\ForumChatter\Helpers\ChatterHelper::stringToColorCode($post->user->{Config::get('chatter.user.database_field_with_user_name')}) ?>">
 					        					{{ ucfirst(substr($post->user->{Config::get('chatter.user.database_field_with_user_name')}, 0, 1)) }}
 					        				</span>
 					        			@endif
 					        		</div>
 
 					        		<div class="chatter_middle">
-					        			<span class="chatter_middle_details"><a href="{{ \Sayller\ForumChatter\Helpers\ChatterHelper::userLink($post->user) }}">{{ ucfirst($post->user->{Config::get('chatter.user.database_field_with_user_name')}) }}</a> <span class="ago chatter_middle_details">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($post->created_at))->diffForHumans() }}</span></span>
+					        			<span class="chatter_middle_details"><a href="{{ \xcloud\ForumChatter\Helpers\ChatterHelper::userLink($post->user) }}">{{ ucfirst($post->user->{Config::get('chatter.user.database_field_with_user_name')}) }}</a> <span class="ago chatter_middle_details">{{ \Carbon\Carbon::createFromTimeStamp(strtotime($post->created_at))->diffForHumans() }}</span></span>
 					        			<div class="chatter_body">
 
 					        				@if($post->markdown)
 					        					<pre class="chatter_body_md">{{ $post->body }}</pre>
-					        					<?= \Sayller\ForumChatter\Helpers\ChatterHelper::demoteHtmlHeaderTags( GrahamCampbell\Markdown\Facades\Markdown::convertToHtml( $post->body ) ); ?>
+					        					<?= \xcloud\ForumChatter\Helpers\ChatterHelper::demoteHtmlHeaderTags( GrahamCampbell\Markdown\Facades\Markdown::convertToHtml( $post->body ) ); ?>
 					        					<!--?= GrahamCampbell\Markdown\Facades\Markdown::convertToHtml( $post->body ); ?-->
 					        				@else
 					        					<?= $post->body; ?>
@@ -161,7 +161,7 @@
 		        				@endif
 
 		        			@else
-		        				<span class="chatter_avatar_circle" style="background-color:#<?= \Sayller\ForumChatter\Helpers\ChatterHelper::stringToColorCode(Auth::user()->{Config::get('chatter.user.database_field_with_user_name')}) ?>">
+		        				<span class="chatter_avatar_circle" style="background-color:#<?= \xcloud\ForumChatter\Helpers\ChatterHelper::stringToColorCode(Auth::user()->{Config::get('chatter.user.database_field_with_user_name')}) ?>">
 		        					{{ strtoupper(substr(Auth::user()->{Config::get('chatter.user.database_field_with_user_name')}, 0, 1)) }}
 		        				</span>
 		        			@endif
@@ -197,7 +197,7 @@
 							<button id="submit_response" class="btn btn-success pull-right"><i class="chatter-new"></i> @lang('chatter::messages.response.submit')</button>
 							@if(Config::get('chatter.email.enabled'))
 								<div id="notify_email">
-									<img src="{{ url('/vendor/sayller/forumchatter/assets/images/email.gif') }}" class="chatter_email_loader">
+									<img src="{{ url('/vendor/xcloud/forumchatter/assets/images/email.gif') }}" class="chatter_email_loader">
 									<!-- Rounded toggle switch -->
 									<span>@lang('chatter::messages.email.notify')</span>
 									<label class="switch">
@@ -299,8 +299,8 @@
 
 @if( $chatter_editor == 'tinymce' || empty($chatter_editor) )
 	<script>var chatter_editor = 'tinymce';</script>
-    <script src="{{ url('/vendor/sayller/forumchatter/assets/vendor/tinymce/tinymce.min.js') }}"></script>
-    <script src="{{ url('/vendor/sayller/forumchatter/assets/js/tinymce.js') }}"></script>
+    <script src="{{ url('/vendor/xcloud/forumchatter/assets/vendor/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ url('/vendor/xcloud/forumchatter/assets/js/tinymce.js') }}"></script>
     <script>
         var my_tinymce = tinyMCE;
         $('document').ready(function(){
@@ -313,17 +313,17 @@
     </script>
 @elseif($chatter_editor == 'simplemde')
 	<script>var chatter_editor = 'simplemde';</script>
-    <script src="{{ url('/vendor/sayller/forumchatter/assets/js/simplemde.min.js') }}"></script>
-    <script src="{{ url('/vendor/sayller/forumchatter/assets/js/chatter_simplemde.js') }}"></script>
+    <script src="{{ url('/vendor/xcloud/forumchatter/assets/js/simplemde.min.js') }}"></script>
+    <script src="{{ url('/vendor/xcloud/forumchatter/assets/js/chatter_simplemde.js') }}"></script>
 @elseif($chatter_editor == 'trumbowyg')
 	<script>var chatter_editor = 'trumbowyg';</script>
-    <script src="{{ url('/vendor/sayller/forumchatter/assets/vendor/trumbowyg/trumbowyg.min.js') }}"></script>
-    <script src="{{ url('/vendor/sayller/forumchatter/assets/vendor/trumbowyg/plugins/preformatted/trumbowyg.preformatted.min.js') }}"></script>
-    <script src="{{ url('/vendor/sayller/forumchatter/assets/js/trumbowyg.js') }}"></script>
+    <script src="{{ url('/vendor/xcloud/forumchatter/assets/vendor/trumbowyg/trumbowyg.min.js') }}"></script>
+    <script src="{{ url('/vendor/xcloud/forumchatter/assets/vendor/trumbowyg/plugins/preformatted/trumbowyg.preformatted.min.js') }}"></script>
+    <script src="{{ url('/vendor/xcloud/forumchatter/assets/js/trumbowyg.js') }}"></script>
 @endif
 
 @if(Config::get('chatter.sidebar_in_discussion_view'))
-    <script src="/vendor/sayller/forumchatter/assets/vendor/spectrum/spectrum.js"></script>
+    <script src="/vendor/xcloud/forumchatter/assets/vendor/spectrum/spectrum.js"></script>
 @endif
 
 <script>
@@ -465,6 +465,6 @@
 	});
 </script>
 
-<script src="{{ url('/vendor/sayller/forumchatter/assets/js/chatter.js') }}"></script>
+<script src="{{ url('/vendor/xcloud/forumchatter/assets/js/chatter.js') }}"></script>
 
 @stop

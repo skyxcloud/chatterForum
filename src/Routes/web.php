@@ -28,7 +28,7 @@ Route::group([
     'as'         => 'chatter.',
     'prefix'     => $route('home'),
     'middleware' => $middleware('global', 'web'),
-    'namespace'  => 'Sayller\ForumChatter\Controllers',
+    'namespace'  => 'xcloud\ForumChatter\Controllers',
 ], function () use ($route, $middleware, $authMiddleware) {
 
     // Home view.
@@ -212,6 +212,6 @@ Route::group([
  */
 Route::get($route('home').'.atom', [
     'as'         => 'chatter.atom',
-    'uses'       => 'Sayller\ForumChatter\Controllers\ChatterAtomController@index',
+    'uses'       => 'xcloud\ForumChatter\Controllers\ChatterAtomController@index',
     'middleware' => $middleware('home'),
 ]);

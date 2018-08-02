@@ -10,7 +10,7 @@
          stopOnFailure="false">
     <testsuites>
         <testsuite name="Application Test Suite">
-            <directory suffix="Test.php">./vendor/sayller/forumchatter/tests</directory>
+            <directory suffix="Test.php">./vendor/xcloud/forumchatter/tests</directory>
         </testsuite>
     </testsuites>
     <php>

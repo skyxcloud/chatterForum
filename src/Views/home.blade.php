@@ -1,12 +1,12 @@
 @extends(Config::get('chatter.master_file_extend'))
 
 @section(Config::get('chatter.yields.head'))
-    <link href="{{ url('/vendor/sayller/forumchatter/assets/vendor/spectrum/spectrum.css') }}" rel="stylesheet">
-	<link href="{{ url('/vendor/sayller/forumchatter/assets/css/chatter.css') }}" rel="stylesheet">
+    <link href="{{ url('/vendor/xcloud/forumchatter/assets/vendor/spectrum/spectrum.css') }}" rel="stylesheet">
+	<link href="{{ url('/vendor/xcloud/forumchatter/assets/css/chatter.css') }}" rel="stylesheet">
 	@if($chatter_editor == 'simplemde')
-		<link href="{{ url('/vendor/sayller/forumchatter/assets/css/simplemde.min.css') }}" rel="stylesheet">
+		<link href="{{ url('/vendor/xcloud/forumchatter/assets/css/simplemde.min.css') }}" rel="stylesheet">
 	@elseif($chatter_editor == 'trumbowyg')
-		<link href="{{ url('/vendor/sayller/forumchatter/assets/vendor/trumbowyg/ui/trumbowyg.css') }}" rel="stylesheet">
+		<link href="{{ url('/vendor/xcloud/forumchatter/assets/vendor/trumbowyg/ui/trumbowyg.css') }}" rel="stylesheet">
 		<style>
 			.trumbowyg-box, .trumbowyg-editor {
 				margin: 0px auto;
@@ -80,7 +80,7 @@
 
 					        			@else
 
-					        				<span class="chatter_avatar_circle" style="background-color:#<?= \Sayller\ForumChatter\Helpers\ChatterHelper::stringToColorCode($discussion->user->{Config::get('chatter.user.database_field_with_user_name')}) ?>">
+					        				<span class="chatter_avatar_circle" style="background-color:#<?= \xcloud\ForumChatter\Helpers\ChatterHelper::stringToColorCode($discussion->user->{Config::get('chatter.user.database_field_with_user_name')}) ?>">
 					        					{{ strtoupper(substr($discussion->user->{Config::get('chatter.user.database_field_with_user_name')}, 0, 1)) }}
 					        				</span>
 
@@ -191,8 +191,8 @@
 
 
 @if( $chatter_editor == 'tinymce' || empty($chatter_editor) )
-	<script src="{{ url('/vendor/sayller/forumchatter/assets/vendor/tinymce/tinymce.min.js') }}"></script>
-	<script src="{{ url('/vendor/sayller/forumchatter/assets/js/tinymce.js') }}"></script>
+	<script src="{{ url('/vendor/xcloud/forumchatter/assets/vendor/tinymce/tinymce.min.js') }}"></script>
+	<script src="{{ url('/vendor/xcloud/forumchatter/assets/js/tinymce.js') }}"></script>
 	<script>
 		var my_tinymce = tinyMCE;
 		$('document').ready(function(){
@@ -202,16 +202,16 @@
 		});
 	</script>
 @elseif($chatter_editor == 'simplemde')
-	<script src="{{ url('/vendor/sayller/forumchatter/assets/js/simplemde.min.js') }}"></script>
-	<script src="{{ url('/vendor/sayller/forumchatter/assets/js/chatter_simplemde.js') }}"></script>
+	<script src="{{ url('/vendor/xcloud/forumchatter/assets/js/simplemde.min.js') }}"></script>
+	<script src="{{ url('/vendor/xcloud/forumchatter/assets/js/chatter_simplemde.js') }}"></script>
 @elseif($chatter_editor == 'trumbowyg')
-	<script src="{{ url('/vendor/sayller/forumchatter/assets/vendor/trumbowyg/trumbowyg.min.js') }}"></script>
-	<script src="{{ url('/vendor/sayller/forumchatter/assets/vendor/trumbowyg/plugins/preformatted/trumbowyg.preformatted.min.js') }}"></script>
-	<script src="{{ url('/vendor/sayller/forumchatter/assets/js/trumbowyg.js') }}"></script>
+	<script src="{{ url('/vendor/xcloud/forumchatter/assets/vendor/trumbowyg/trumbowyg.min.js') }}"></script>
+	<script src="{{ url('/vendor/xcloud/forumchatter/assets/vendor/trumbowyg/plugins/preformatted/trumbowyg.preformatted.min.js') }}"></script>
+	<script src="{{ url('/vendor/xcloud/forumchatter/assets/js/trumbowyg.js') }}"></script>
 @endif
 
-<script src="{{ url('/vendor/sayller/forumchatter/assets/vendor/spectrum/spectrum.js') }}"></script>
-<script src="{{ url('/vendor/sayller/forumchatter/assets/js/chatter.js') }}"></script>
+<script src="{{ url('/vendor/xcloud/forumchatter/assets/vendor/spectrum/spectrum.js') }}"></script>
+<script src="{{ url('/vendor/xcloud/forumchatter/assets/js/chatter.js') }}"></script>
 <script>
 	$('document').ready(function(){
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Sayller\ForumChatter\Mail;
+namespace xcloud\ForumChatter\Mail;
 
-use Sayller\ForumChatter\Models\Discussion;
+use xcloud\ForumChatter\Models\Discussion;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;

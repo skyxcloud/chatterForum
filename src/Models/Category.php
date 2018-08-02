@@ -1,6 +1,6 @@
 <?php
 
-namespace Sayller\ForumChatter\Models;
+namespace xcloud\ForumChatter\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
