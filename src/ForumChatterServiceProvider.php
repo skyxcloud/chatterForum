@@ -1,6 +1,6 @@
 <?php
 
-namespace \ForumChatter;
+namespace xcloud\ForumChatter;
 
 use Illuminate\Support\ServiceProvider;
 
