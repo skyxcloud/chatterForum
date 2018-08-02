@@ -1,6 +1,6 @@
 <?php
 
-namespace Sayller\ForumChatter;
+namespace \ForumChatter;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -15,7 +15,7 @@ class ForumChatterServiceProvider extends ServiceProvider
     {
         $this->loadTranslationsFrom(__DIR__.'/Lang', 'chatter');
         $this->publishes([
-            __DIR__.'/../public/assets' => public_path('vendor/sayller/forumchatter/assets'),
+            __DIR__.'/../public/assets' => public_path('vendor/xcloud/forumchatter/assets'),
         ], 'chatter_assets');
 
         $this->publishes([

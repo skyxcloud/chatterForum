@@ -1,10 +1,10 @@
 {
-    "name": "sayller/forumchatter",
+    "name": "xcloud/forumchatter",
     "description": "A simple forum package for your laravel app with some modification for X-Cloud",
     "authors": [
         {
-            "name": "Ion Podolean",
-            "email": "sayller@yahoo.com"
+            "name": "X-Cloud",
+            "email": "traian@x-cloud.biz"
         }
     ],
     "require": {
@@ -18,7 +18,7 @@
     },
     "autoload": {
 	    "psr-4": {
-	      "Sayller\\ForumChatter\\": "/src"
+	      "xcloud\\ForumChatter\\": "/src"
 		}
 	},
     "autoload-dev": {
@@ -29,7 +29,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Sayller\\ForumChatter\\ForumChatterServiceProvider"
+                "xcloud\\ForumChatter\\ForumChatterServiceProvider"
             ]
         }
     }

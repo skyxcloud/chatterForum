@@ -34,7 +34,7 @@ return [
     |
     */
 
-    'headline_logo' => '/vendor/sayller/forumchatter/assets/images/logo-light.png',
+    'headline_logo' => '/vendor/xcloud/forumchatter/assets/images/logo-light.png',
 
     /*
     |--------------------------------------------------------------------------
@@ -55,8 +55,8 @@ return [
     */
 
     'yields' => [
-        'head'   => 'css',
-        'footer' => 'js',
+        'head'   => 'custom-css',
+        'footer' => 'custom-scripts',
     ],
 
     /*

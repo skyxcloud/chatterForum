@@ -1,9 +1,9 @@
 <?php
 
-namespace Sayller\ForumChatter\Controllers;
+namespace xcloud\ForumChatter\Controllers;
 
 use Carbon\Carbon;
-use Sayller\ForumChatter\Models\Discussion;
+use xcloud\ForumChatter\Models\Discussion;
 use Illuminate\Routing\Controller as Controller;
 use SimpleXMLElement;
 

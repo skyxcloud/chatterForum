@@ -1,6 +1,6 @@
 <?php
 
-namespace Sayller\ForumChatter\Events;
+namespace xcloud\ForumChatter\Events;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;

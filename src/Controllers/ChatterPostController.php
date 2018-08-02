@@ -1,13 +1,13 @@
 <?php
 
-namespace Sayller\ForumChatter\Controllers;
+namespace xcloud\ForumChatter\Controllers;
 
 use Auth;
 use Carbon\Carbon;
-use Sayller\ForumChatter\Events\ChatterAfterNewResponse;
-use Sayller\ForumChatter\Events\ChatterBeforeNewResponse;
-use Sayller\ForumChatter\Mail\ChatterDiscussionUpdated;
-use Sayller\ForumChatter\Models\Models;
+use xcloud\ForumChatter\Events\ChatterAfterNewResponse;
+use xcloud\ForumChatter\Events\ChatterBeforeNewResponse;
+use xcloud\ForumChatter\Mail\ChatterDiscussionUpdated;
+use xcloud\ForumChatter\Models\Models;
 use Event;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as Controller;

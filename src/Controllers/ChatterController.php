@@ -1,10 +1,10 @@
 <?php
 
-namespace Sayller\ForumChatter\Controllers;
+namespace xcloud\ForumChatter\Controllers;
 
 use Auth;
-use Sayller\ForumChatter\Helpers\ChatterHelper as Helper;
-use Sayller\ForumChatter\Models\Models;
+use xcloud\ForumChatter\Helpers\ChatterHelper as Helper;
+use xcloud\ForumChatter\Models\Models;
 use Illuminate\Routing\Controller as Controller;
 
 class ChatterController extends Controller
