@@ -55,7 +55,7 @@
 	    		<!-- SIDEBAR -->
 	    		<div class="chatter_sidebar">
 					<button class="btn btn-primary" id="new_discussion_btn"><i class="chatter-new"></i> @lang('chatter::messages.discussion.new')</button>
-					<a href="/{{ Config::get('chatter.routes.home') }}"><i class="chatter-bubble"></i> @lang('chatter::messages.discussion.all')</a>
+					<a href="{{ route('chatter.home') }}"><i class="chatter-bubble"></i> @lang('chatter::messages.discussion.all')</a>
           {!! $categoriesMenu !!}
 				</div>
 				<!-- END SIDEBAR -->
@@ -65,7 +65,8 @@
 		        	<ul class="discussions">
 		        		@foreach($discussions as $discussion)
 				        	<li>
-				        		<a class="discussion_list" href="/{{ Config::get('chatter.routes.home') }}/{{ Config::get('chatter.routes.discussion') }}/{{ $discussion->category->slug }}/{{ $discussion->slug }}">
+{{--				        		<a class="discussion_list" href="/{{ Config::get('chatter.routes.home') }}/{{ Config::get('chatter.routes.discussion') }}/{{ $discussion->category->slug }}/{{ $discussion->slug }}">--}}
+				        		<a class="discussion_list" href="{{ route('chatter.home') }}/{{ Config::get('chatter.routes.discussion') }}/{{ $discussion->category->slug }}/{{ $discussion->slug }}">
 					        		<div class="chatter_avatar">
 					        			@if(Config::get('chatter.user.avatar_image_database_field'))
 
@@ -125,7 +126,7 @@
 		    <div></div>
 		</div>
 
-    	<form id="chatter_form_editor" action="/{{ Config::get('chatter.routes.home') }}/{{ Config::get('chatter.routes.discussion') }}" method="POST">
+    	<form id="chatter_form_editor" action="{{ route('chatter.home') }}/{{ Config::get('chatter.routes.discussion') }}" method="POST">
         	<div class="row">
 	        	<div class="col-md-7">
 		        	<!-- TITLE -->
@@ -170,7 +171,7 @@
             <div id="new_discussion_footer">
             	<input type='text' id="color" name="color" /><span class="select_color_text">@lang('chatter::messages.editor.select_color_text')</span>
             	<button id="submit_discussion" class="btn btn-success pull-right"><i class="chatter-new"></i> @lang('chatter::messages.discussion.create')</button>
-            	<a href="/{{ Config::get('chatter.routes.home') }}" class="btn btn-default pull-right" id="cancel_discussion">@lang('chatter::messages.words.cancel')</a>
+            	<a href="{{ route('chatter.home') }}" class="btn btn-default pull-right" id="cancel_discussion">@lang('chatter::messages.words.cancel')</a>
             	<div style="clear:both"></div>
             </div>
         </form>
