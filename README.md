@@ -1,4 +1,4 @@
-Design Update
+
 X-Cloud
 Publish the Vendor Assets files by running:
 
