@@ -3,6 +3,7 @@
 @section(Config::get('chatter.yields.head'))
     <link href="{{ url('/vendor/xcloud/forumchatter/assets/vendor/spectrum/spectrum.css') }}" rel="stylesheet">
 	<link href="{{ url('/vendor/xcloud/forumchatter/assets/css/chatter.css') }}" rel="stylesheet">
+
 	@if($chatter_editor == 'simplemde')
 		<link href="{{ url('/vendor/xcloud/forumchatter/assets/css/simplemde.min.css') }}" rel="stylesheet">
 	@elseif($chatter_editor == 'trumbowyg')
@@ -13,6 +14,8 @@
 			}
 		</style>
 	@endif
+	<link href="{{ url('/vendor/xcloud/forumchatter/assets/css/my-chatter.css') }}" rel="stylesheet">
+
 @stop
 
 @section('content')
@@ -248,3 +251,4 @@
 	});
 </script>
 @stop
+
