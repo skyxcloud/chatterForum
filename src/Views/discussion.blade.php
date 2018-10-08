@@ -15,13 +15,13 @@
             }
         </style>
     @endif
-	<link href="{{ url('/vendor/xcloud/forumchatter/assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ url('/vendor/xcloud/forumchatter/assets/css/my-chatter.css') }}" rel="stylesheet">
 @stop
 
 
 @section('content')
 
-<div id="chatter" class="discussion">
+<div id="chatter" class="discussion  my-chatter">
 
 	<div id="chatter_header" style="background-color:{{ $discussion->color }}">
 		<div class="container">
@@ -404,7 +404,7 @@
                 @endif
 			}
 
-			$.form('{{ route(\'chatter.home\') }}/posts/' + post_id, { _token: '{{ csrf_token() }}', _method: 'PATCH', 'body' : update_body }, 'POST').submit();
+			$.form('{{ route("chatter.home") }}/posts/' + post_id, { _token: '{{ csrf_token() }}', _method: 'PATCH', 'body' : update_body }, 'POST').submit();
 		});
 
 		$('#submit_response').click(function(){
@@ -429,7 +429,7 @@
 
 		$('.delete_response').click(function(){
 			post_id = $(this).parents('li').data('id');
-			$.form('{{ route(\'chatter.home\') }}/posts/' + post_id, { _token: '{{ csrf_token() }}', _method: 'DELETE'}, 'POST').submit();
+			$.form('{{ route("chatter.home") }}/posts/' + post_id, { _token: '{{ csrf_token() }}', _method: 'DELETE'}, 'POST').submit();
 		});
 
 		// logic for when a new discussion needs to be created from the slideUp
