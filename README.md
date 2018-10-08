@@ -1,6 +1,6 @@
 
 X-Cloud
-Publish the Vendor Assets files by running:
+Publish the Vendor Assets files by running CHANGE:
 
     ```
     php artisan vendor:publish 
