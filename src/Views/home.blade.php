@@ -57,13 +57,30 @@
 	    	<div class="col-md-3 left-column">
 	    		<!-- SIDEBAR -->
 	    		<div class="chatter_sidebar">
-					<button class="btn btn-primary" id="new_discussion_btn"><i class="chatter-new"></i> @lang('chatter::messages.discussion.new')</button>
+					<button class="btn btn-primary {{ !Auth::check() ? 'btn-not-logged' : '' }}" id="new_discussion_btn"><i class="chatter-new"></i> @lang('chatter::messages.discussion.new')</button>
 					<a href="{{ route('chatter.home') }}"><i class="chatter-bubble"></i> @lang('chatter::messages.discussion.all')</a>
           {!! $categoriesMenu !!}
 				</div>
 				<!-- END SIDEBAR -->
 	    	</div>
 	        <div class="col-md-9 right-column">
+				<div>
+					<form type="GET" action="{{ route('chatter.home') }}">
+						<div class="form-row align-items-center">
+							<div class="col-auto">
+								<label class="sr-only">Search by title</label>
+								<input class="form-control mb-2" type="text" name="title">
+							</div>
+
+							<div class="col-auto my-1">
+								<button type="submit" class="btn btn-primary">Search</button>
+							</div>
+						</div>
+					</form>
+				</div>
+
+
+
 	        	<div class="panel">
 		        	<ul class="discussions">
 		        		@foreach($discussions as $discussion)
@@ -173,7 +190,7 @@
 
             <div id="new_discussion_footer">
             	<input type='text' id="color" name="color" /><span class="select_color_text">@lang('chatter::messages.editor.select_color_text')</span>
-            	<button id="submit_discussion" class="btn btn-success pull-right"><i class="chatter-new"></i> @lang('chatter::messages.discussion.create')</button>
+            	<button id="submit_discussion" class="btn btn-success pull-right {{ !Auth::check() ? 'btn-not-logged' : '' }}"><i class="chatter-new"></i> @lang('chatter::messages.discussion.create')</button>
             	<a href="{{ route('chatter.home') }}" class="btn btn-default pull-right" id="cancel_discussion">@lang('chatter::messages.words.cancel')</a>
             	<div style="clear:both"></div>
             </div>
@@ -219,12 +236,17 @@
 <script>
 	$('document').ready(function(){
 
+        $('.btn-not-logged').on('click', function (event){
+            event.preventDefault()
+            $('#Login').modal('show');
+        });
+
 		$('.chatter-close, #cancel_discussion').click(function(){
 			$('#new_discussion').slideUp();
 		});
-		$('#new_discussion_btn').click(function(){
+		$('#new_discussion_btn').click(function(event){
 			@if(Auth::guest())
-				window.location.href = "{{ route('login') }}";
+            	event.preventDefault();
 			@else
 				$('#new_discussion').slideDown();
 				$('#title').focus();

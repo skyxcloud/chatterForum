@@ -3,13 +3,14 @@
 namespace xcloud\ForumChatter\Controllers;
 
 use Auth;
+use Illuminate\Http\Request;
 use xcloud\ForumChatter\Helpers\ChatterHelper as Helper;
 use xcloud\ForumChatter\Models\Models;
 use Illuminate\Routing\Controller as Controller;
 
 class ChatterController extends Controller
 {
-    public function index($slug = '')
+    public function index($slug = '',Request $request)
     {
         $pagination_results = config('chatter.paginate.num_of_results');
         
@@ -23,8 +24,13 @@ class ChatterController extends Controller
             } else {
                 $current_category_id = null;
             }
+
+            if(isset($request->title)) {
+                $discussions = $discussions->where('title', 'like', '%'.$request->title.'%');
+            }
+
         }
-        
+
         $discussions = $discussions->paginate($pagination_results);
         
         $categories = Models::category()->get();
