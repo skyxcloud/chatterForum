@@ -69,7 +69,7 @@
 						<div class="form-row align-items-center">
 							<div class="col-auto">
 								<label class="sr-only">Search by title</label>
-								<input class="form-control mb-2" type="text" name="title">
+								<input class="form-control mb-2" type="text" name="title" value="{{ $title }}">
 							</div>
 
 							<div class="col-auto my-1">
@@ -132,7 +132,7 @@
 	        	</div>
 
 	        	<div id="pagination">
-	        		{{ $discussions->links() }}
+	        		{{ $discussions->appends(request()->input())->links() }}
 	        	</div>
 
 	        </div>
