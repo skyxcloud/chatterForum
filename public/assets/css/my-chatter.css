@@ -1,6 +1,11 @@
 body{
     background-color: #f1f1f1;
 }
+#chatter.my-chatter input[name="title"]{
+    margin-bottom:0!important;
+    border-radius:30px;
+}
+
 #chatter.my-chatter{
     padding-top:107px;
     padding-bottom:50px;
